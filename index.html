@@ -1,1 +1,25 @@
 <h1>Converter</h1>
+<input id="from">From Currency</input>
+<br>
+<input id="to">To Currency</input>
+<br>
+<br>
+<input id="amount">Amount</input>
+<br>
+<br>
+<button onclick="submit()">Submit</button>
+
+<script>
+    function reqListener() {
+        console.log(this.responseText);
+    }
+
+
+    function submit() {
+        const req = new XMLHttpRequest();
+        req.addEventListener("load", reqListener);
+        req.open("GET", "localhost:8080/exchange?from=AFN&to=ANG&amount=20");
+        req.send();
+        console.log("Testi");
+    }
+</script>
